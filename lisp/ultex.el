@@ -1138,7 +1138,10 @@ really grab the defs.  If the buffer contains the string
 	     (progn
 	       (set-buffer
 		(generate-new-buffer fn))
-	       (insert-file-contents fn t)))
+               (insert-file-contents fn t)
+               ;; reset min, max for new buffer
+               (setq min (point-min))
+               (setq max (point-max))))
 	(setq ultex-end (save-excursion
 			  (ultex-re-search-forward
 			   "\\\\end{document}" 
@@ -1304,6 +1307,7 @@ ultex-no-grab-if-space.  Intended for use when grabbing labels."
 	  (if (or allow-space (not ultex-no-grab-if-space))
 	      regexp (concat "^" regexp))
 	  limit t)
+         (> (match-end match) pos) ;; safety check
 	 (buffer-substring-no-properties (match-beginning match)
 					 (match-end match)))))
 
