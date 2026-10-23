@@ -1711,10 +1711,14 @@ if non-nil")
     (cond
      ((not lc-emacs-21-p)
       (list from to current-prefix-arg))
-     ((and transient-mark-mode mark-active)
-      (list from to current-prefix-arg (region-beginning) (region-end)))
      (t
-      (list from to current-prefix-arg nil nil)))))
+      (list from to
+            (or (and current-prefix-arg (not (eq current-prefix-arg '-)))
+                (and (plist-member (text-properties-at 0 from)
+                                   'isearch-regexp-function)
+                     (get-text-property 0 'isearch-regexp-function from)))
+            (or (and current-prefix-arg (eq current-prefix-arg '-))
+                (and (use-region-p) (>= (point) (region-end)))))))))
 
 (defun lc-complete-p (arg)
   "Non-nil if one should do lightning completion in environment ARG,
