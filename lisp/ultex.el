@@ -1,5 +1,5 @@
 ;;; ultex.el --- Ultra-TeX mode
-;; Copyright (c) 1991-2022
+;; Copyright (c) 1991-2026
 ;; Mark Haiman, Nick Reingold, John Palmieri
 
 ;; Authors:   Mark Haiman <mhaiman@macaulay.ucsd.edu>, 
@@ -8,7 +8,7 @@
 ;; Maintainer: John Palmieri <palmieri@math.washington.edu>
 ;;             URL: http://www.math.washington.edu/~palmieri/Emacs/ultratex.html
 ;; Keywords: TeX-mode, completion
-;; Version:  0.90 of Thu Jul 28 15:32:53 PDT 2022
+;; Version:  0.91 of Thu Oct 22 20:08:12 PDT 2026 (Emacs 29)
 
 ;; This file is not part of GNU Emacs.
 
