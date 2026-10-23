@@ -1210,6 +1210,14 @@ really grab the defs.  If the buffer contains the string
 		(goto-char min)
 		(while (setq csname
 			     (ultex-get-next
+			      "\\DeclarePaired" 0
+			      "\\\\DeclarePairedDelimiter\\s-*\\(\\\\[a-zA-Z]+\\)\\([^{]*\\){"
+			      ultex-start 1))
+		  (setq command-list (cons (list (concat csname "{}") -1)
+					   command-list)))
+		(goto-char min)
+		(while (setq csname
+			     (ultex-get-next
 			      "command" 8
 			      "\\\\\\(\\(re\\)?new\\|provide\\)command\\s-*{?\\(\\\\[a-zA-Z]+\\|\\\\.\\)\\s-*}?"
 			      ultex-end 3))
