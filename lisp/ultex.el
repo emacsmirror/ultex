@@ -1184,6 +1184,19 @@ really grab the defs.  If the buffer contains the string
 		(goto-char min)
 		(while (setq csname
 			     (ultex-get-next
+			      "\\declaretheorem" 0
+			      "\\\\declaretheorem\\(\\[[^]]*\\]\\)\\s-*{\\([a-zA-Z]+\\)\\s-*}"
+			      ultex-start 2))
+		  (setq command-list
+			(cons (list
+			       (concat "\\begin{" csname "}"
+				       "\\label{}\n\n\\end{"
+			               csname "}\n")
+			       (- (+ 10 0 (length csname))))
+			      command-list)))
+		(goto-char min)
+		(while (setq csname
+			     (ultex-get-next
 			      "newenvironment" 3
 			      "\\\\\\(re\\)?newenvironment\\s-*{\\([a-zA-Z]+\\)\\s-*}"
 			      ultex-start 2))
