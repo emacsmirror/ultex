@@ -1290,6 +1290,10 @@ really grab the defs.  If the buffer contains the string
 			(append (list 
 				 (list (concat "\\ref{" csname "} ") 0)
 				 (list (concat "\\eqref{" csname "} ") 0)
+				 (list (concat "\\cref{" csname "} ") 0)
+				 (list (concat "\\autoref{" csname "} ") 0)
+				 (list (concat "\\Autoref{" csname "} ") 0)
+				 (list (concat "\\nameref{" csname "} ") 0)
 				 (list (concat "\\pageref{" csname "} ") 0))
 				label-list)))))
 	  (and fn (kill-buffer (current-buffer))))))
