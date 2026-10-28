@@ -8,7 +8,7 @@
 ;; Maintainer: John Palmieri <palmieri@math.washington.edu>
 ;;             URL: http://www.math.washington.edu/~palmieri/Emacs/ultratex.html
 ;; Keywords: TeX-mode, completion
-;; Version:  0.91 of Thu Oct 22 20:08:12 PDT 2026 (Emacs 29)
+;; Version:  0.911 of Wed Oct 28 14:33:22 PDT 2026 (Emacs 29)
 
 ;; This file is not part of GNU Emacs.
 
